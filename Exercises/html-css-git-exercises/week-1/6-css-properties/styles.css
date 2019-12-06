@@ -1,1 +1,10 @@
 /* Add your CSS code below */
+a {
+  color: red;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.message--unread {
+  border-left: blue 1px solid;
+}
