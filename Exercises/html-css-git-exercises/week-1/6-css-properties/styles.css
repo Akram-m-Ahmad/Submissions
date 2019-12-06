@@ -3,6 +3,7 @@ a {
   color: red;
   font-weight: bold;
   font-size: 0.9rem;
+  text-decoration: none;
 }
 
 .message--unread {
