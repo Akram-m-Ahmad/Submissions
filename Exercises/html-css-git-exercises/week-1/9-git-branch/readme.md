@@ -53,7 +53,8 @@ Use this command to switch to your `red_links` branch:
 git checkout red_links
 ```
 
-Now check your browser to make sure the links are red. Try switching back and forth between your two branches a few times to see how it works.
+Now check your bro
+wser to make sure the links are red. Try switching back and forth between your two branches a few times to see how it works.
 
 _Hint: Don't copy/paste the commands in this exercise. You will learn more by typing them out. It's ok if it takes you a little longer!_
 
