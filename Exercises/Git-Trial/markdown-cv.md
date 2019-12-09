@@ -2,7 +2,7 @@
 
 # Akram Ahmad
 
-Day of Brith : 17/244/1989
+Day of Brith : 17/2/1989
 
 Lebanon - Aley
 
