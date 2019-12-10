@@ -1,0 +1,93 @@
+main,
+header,
+section,
+aside,
+footer {
+  margin: 0;
+  padding: rem-clac(20);
+  line-height: 25px;
+  color: #fff;
+  background-color: #212b2d;
+  font-size: 20px;
+  position: relative;
+}
+.main {
+  padding: 120px;
+}
+
+.content {
+  padding: 60px;
+}
+
+.footer {
+  text-align: center;
+}
+@media screen and (min-width: 640px) {
+  .flex-container {
+    display: flex;
+  }
+  .cotent {
+    flex: 1;
+  }
+  .sidebar {
+    flex: 0 1 300px;
+  }
+}
+.wrapper {
+  margin: auto;
+  max-width: rem-calc(1200);
+}
+.menu {
+  background-color: #313b3d;
+  padding: 10px;
+}
+.menu ul li {
+  display: inline;
+  margin-right: 4%;
+}
+.beside {
+  display: flex;
+}
+.subset {
+  padding: 20px;
+  flex: 1;
+}
+.subset2 {
+  padding: 20px;
+  flex: 1;
+}
+.vl {
+  border-left: 2px solid white;
+  height: 400px;
+}
+.vl_header {
+  border-left: 2px solid white;
+
+  display: inline;
+  margin-right: 20px;
+}
+button {
+  padding: 10px;
+}
+.bottom-left {
+  font-size: 70px;
+  position: absolute;
+  bottom: 8px;
+  left: 100px;
+  top: 100px;
+}
+.btn {
+  text-align: center;
+  padding: 5px;
+  font-size: 25px;
+  border: white 1px solid;
+  color: white;
+  border-radius: 15px;
+}
+.cont-contactBtn {
+  text-align: left;
+  margin-left: 200px;
+}
+input {
+  border-radius: 8px;
+}

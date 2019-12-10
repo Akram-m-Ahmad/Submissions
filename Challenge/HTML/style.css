@@ -1,0 +1,15 @@
+h1,
+h2,
+h3 {
+  color: brown;
+}
+.pp {
+  font-size: 30px;
+  color: cadetblue;
+}
+* {
+  background-color: black;
+}
+.menu {
+  border: white 2px solid;
+}
