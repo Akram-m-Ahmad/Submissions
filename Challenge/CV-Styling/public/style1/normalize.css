@@ -448,8 +448,7 @@ template {
 [hidden] {
   display: none;
 }
-
-header div {
+<<<<<<< head:exercises/cv-styling/public/style1/normalize.css header div {
   flex-direction: row;
   display: flex;
   background-color: gray;
@@ -461,3 +460,4 @@ header div {
 .contacts {
   position: absolute;
 }
+=======>>>>>>> upstream/master: Challenge/CV-Styling/public/style1/normalize.css;
