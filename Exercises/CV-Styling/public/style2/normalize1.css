@@ -448,16 +448,3 @@ template {
 [hidden] {
   display: none;
 }
-
-header div {
-  flex-direction: row;
-  display: flex;
-  background-color: gray;
-}
-* {
-  padding-left: 2%;
-  padding-right: 2%;
-}
-.contacts {
-  position: absolute;
-}
