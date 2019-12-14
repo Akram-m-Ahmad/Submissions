@@ -452,63 +452,231 @@ header div {
   flex-direction: row;
   display: flex;
   background-color: gray;
-  height: 220px;
+  height: 170px;
   padding: 115px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
-* {
-  padding-left: 2%;
-  padding-right: 2%;
+body div {
+  margin: 0;
+  padding: 0;
 }
-.contacts {
-  position: absolute;
-  top: 5px;
-  right: 7.5%;
-  background: linear-gradient(to right, red 0%, red 25%, black 0%, #080303 80%);
-  color: white;
-  width: 500px;
+
+header {
+  background-color: gray;
+  padding: 1em 1em 2.5em 1em;
 }
-.contact {
-  flex-direction: row;
+
+header div {
   display: flex;
-}
-.contact-value a {
+  flex-direction: row;
+  margin-left: 15%;
   color: red;
 }
+
+h1 {
+  padding-bottom: 1.5em;
+  padding-right: 1em;
+}
+
+img {
+  padding-top: 1em;
+}
+
+#contact {
+  position: absolute;
+  top: 35px;
+  right: 0;
+  margin-top: 0.6em;
+  color: white;
+}
+
+#contact > h3 {
+  display: none;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+}
+.contacts dl {
+  margin: 0px;
+}
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.contact-type {
+  background-color: red;
+  padding: 5px;
+}
+
+.contact-value {
+  background-color: black;
+  padding: 5px;
+  color: red;
+}
+
+.contact-value a {
+  text-decoration: none;
+  color: red;
+}
+
 .content {
   display: grid;
-  grid-template-areas:
-    "header header header ooter ooter ooter"
-    " maain maain maain right  right right"
-    "menu footer footer footer footer footer"
-    "otqer footer footer footer footer footer";
+  grid-template-columns: 1fr 1fr;
+  padding: 2em 6em;
 }
 
-#about {
-  grid-area: header;
-}
-#experiences {
-  grid-area: maain;
-}
-#hobbies {
-  grid-area: menu;
-}
-#education {
-  grid-area: right;
-}
-#competencies {
-  grid-area: ooter;
-}
-.contact {
-  grid-area: otqer;
+.content section h3 {
+  border-bottom: 1px rgb(211, 208, 208) solid;
+  padding: 5px;
 }
 
-h3 {
-  list-style: none;
+#about p {
+  padding: 1em 1em 1em 0;
 }
-h3::before {
-  content: "\2022";
-  padding-right: 00.5em;
+
+.skills {
+  padding: 1em 1em 1em 0;
+}
+
+.skills .skill {
+  background-color: rgba(196, 192, 192, 0.918);
+  margin: 0.3em;
+  padding: 0.2em;
+  color: white;
+}
+
+.skills-primary .skill:nth-child(1) span {
+  background-color: red;
+  padding-right: 3em;
+}
+
+.skills-primary .skill:nth-child(2) span {
+  background-color: red;
+  padding-right: 30%;
+}
+
+.skills-primary .skill:nth-child(3) span {
+  background-color: red;
+  padding-right: 10%;
+}
+
+.skills-secondary .skill:nth-child(1) span {
+  background-color: red;
+  padding-right: 90%;
+}
+
+.skills-secondary .skill:nth-child(2) span {
+  background-color: red;
+  padding-right: 50%;
+}
+
+.skills-secondary .skill:nth-child(3) span {
+  background-color: red;
+  padding-right: 70%;
+}
+
+.experience-type {
   color: red;
+}
+
+.experience-institution {
+  color: red;
+  font-weight: 500;
+}
+.experience-date,
+.experience-location {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #888;
+}
+
+.experience-location {
+  padding-left: 1em;
+}
+
+h3::before {
+  content: "•";
+  color: red;
+  display: inline-block;
+  width: 10px;
+  height: 20px;
+  transform: scale(2.5);
+  padding-right: 0.3em;
+}
+
+.experience h4 {
+  padding-top: 1em;
+  padding-bottom: 0.1em;
+  margin-bottom: 0px;
+}
+
+.experience-details {
+  padding-bottom: 1em;
+}
+
+ul {
+  padding-top: 1em;
+  padding-left: 2em;
+}
+
+#hobbies {
+  padding-top: 2em;
+}
+
+dd.contact-value {
+  margin: 0px;
+}
+
+.experience-date-separator {
+  color: red;
+}
+
+.experience-details {
+  margin-top: 2px;
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+@media (max-width: 600px) {
+  header div {
+    grid-area: header-div;
+  }
+  #about {
+    grid-area: about;
+  }
+
+  #competencies {
+    grid-area: competencies;
+  }
+
+  #experience {
+    grid-area: experience;
+  }
+
+  #education {
+    grid-area: education;
+  }
+
+  #hobbies {
+    grid-area: hobbies;
+  }
+
+  #contact {
+    grid-area: contact;
+  }
+  body div {
+    grid-template-areas:
+      "header-div"
+      "about"
+      "competencies"
+      "experience"
+      "education"
+      "hobbies"
+      "contact";
+  }
+  #contact {
+    position: inherit;
+  }
 }
