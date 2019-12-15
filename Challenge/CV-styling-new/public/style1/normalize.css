@@ -504,7 +504,7 @@ img {
 }
 .contact {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: s;
 }
 
 .contact-type {
@@ -646,23 +646,18 @@ dd.contact-value {
   #about {
     grid-area: about;
   }
-
   #competencies {
     grid-area: competencies;
   }
-
   #experience {
     grid-area: experience;
   }
-
   #education {
     grid-area: education;
   }
-
   #hobbies {
     grid-area: hobbies;
   }
-
   #contact {
     grid-area: contact;
   }

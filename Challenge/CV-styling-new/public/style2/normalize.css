@@ -1,0 +1,156 @@
+body {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 2px;
+}
+
+#about {
+  border-top: rgb(184, 184, 184) 2px solid;
+  color: gray;
+  font-style: italic;
+}
+
+figure img {
+  float: right;
+  width: 180px;
+
+  margin-right: 180px;
+  margin-top: -50px;
+  color: white;
+  transform: rotate(-15deg); /* Equal to rotateZ(45deg) */
+}
+h3 {
+  border-right: gray 2px solid;
+  margin-right: 10px;
+}
+
+section:not(#about) {
+  display: grid;
+  grid-template-columns: 13% 87%;
+
+  padding-top: 75px;
+}
+section h3 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+section div:first-of-type {
+  grid-area: 1 / 2 / 2 / 2;
+}
+section div:last-child {
+  grid-area: 2 / 2 / 3 / 3;
+}
+.skills {
+  padding-left: 65px;
+}
+.skills-primary,
+.skills-secondary {
+  display: flex;
+  margin-top: 25px;
+}
+.skills-primary .skill:nth-child(1) span {
+  background-color: #008080;
+  padding-right: 3em;
+  color: white;
+  margin-left: 5px;
+  padding: 5px;
+}
+.skills-primary .skill:nth-child(1) span::after {
+  background-color: #008080;
+  padding-right: 3em;
+  color: white;
+  margin-left: 5px;
+  padding: 5px;
+  content: "\2605";
+}
+.skills-primary .skill:nth-child(1) span::after {
+  background-color: #008080;
+  padding-right: 3em;
+  color: white;
+  margin-left: 5px;
+  padding: 5px;
+  content: "\2605\2605\2605";
+}
+
+.skills-primary .skill:nth-child(2) span {
+  background-color: #008080;
+  padding-right: 3em;
+  color: white;
+  margin-left: 5px;
+
+  padding: 5px;
+}
+.skills-primary .skill:nth-child(2) span::after {
+  background-color: #008080;
+  padding-right: 3em;
+  color: white;
+  margin-left: 5px;
+  padding: 5px;
+  content: "\2605\2605";
+}
+.skills-primary .skill:nth-child(3) span::after {
+  background-color: #008080;
+  padding-right: 3em;
+  color: white;
+  margin-left: 5px;
+  padding: 5px;
+  content: "\2605";
+}
+
+.skills-primary .skill:nth-child(3) span {
+  background-color: #008080;
+  padding-right: 3em;
+  color: white;
+  margin-left: 5px;
+  padding: 5px;
+}
+.skills-secondary .skill:nth-child(1) span {
+  background-color: #008080;
+  padding-right: 3em;
+  color: white;
+  margin-left: 5px;
+  padding: 5px;
+}
+.skills-secondary .skill:nth-child(1) span::after {
+  background-color: #008080;
+  padding-right: 3em;
+  color: white;
+  margin-left: 5px;
+  padding: 5px;
+  content: "\2605\2605\2605";
+}
+.skills-secondary .skill:nth-child(2) span {
+  background-color: #008080;
+  padding-right: 3em;
+  color: white;
+  margin-left: 5px;
+  padding: 5px;
+}
+.skills-secondary .skill:nth-child(2) span::after {
+  background-color: #008080;
+  padding-right: 3em;
+  color: white;
+  margin-left: 5px;
+  padding: 5px;
+  content: "\2605\2605";
+}
+.skills-secondary .skill:nth-child(3) span::after {
+  background-color: #008080;
+  padding-right: 3em;
+  color: white;
+  margin-left: 5px;
+  padding: 5px;
+  content: "\2605";
+}
+.skills-secondary .skill:nth-child(3) span {
+  background-color: #008080;
+  padding-right: 3em;
+  color: white;
+  margin-left: 5px;
+  padding: 5px;
+}
+.contacts {
+  display: flex;
+}
+.contact-type {
+  background-image: url("https://img.favpng.com/4/7/21/email-forwarding-icon-png-favpng-c8ELqjyHgj1jr06mvFMwcRhaU.jpg");
+}
