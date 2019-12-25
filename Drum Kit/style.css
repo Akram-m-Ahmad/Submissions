@@ -1,0 +1,67 @@
+.drum {
+  position: fixed;
+
+  top: 80px;
+  left: 385px;
+}
+.crash {
+  position: fixed;
+
+  top: 170px;
+  left: 429px;
+}
+.hihat {
+  position: fixed;
+
+  top: 188px;
+  left: 670px;
+}
+
+* {
+  background-color: black;
+}
+.rotated-image {
+  position: fixed;
+
+  top: 170px;
+  left: 429px;
+
+  transform: rotate(-10deg);
+}
+.rotated-imagee {
+  position: fixed;
+
+  top: 170px;
+  left: 429px;
+
+  transform: rotate(+10deg);
+}
+.rotated-hihat {
+  position: fixed;
+
+  top: 188px;
+  left: 670px;
+}
+.rotated-hihatt {
+  position: fixed;
+
+  top: 188px;
+  left: 670px;
+  margin-top: 3px;
+}
+.imag {
+  width: 50px;
+  height: 50px;
+  color: white;
+}
+
+.bo img {
+  margin: 3px;
+}
+p {
+  color: white;
+  float: right;
+}
+.bo {
+  float: right;
+}
