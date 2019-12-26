@@ -53,13 +53,25 @@
       <main>
         <h1>Contact Us</h1>
         <p>Send us an email if you would like to contact us.</p>
+        <fieldset>
+          <legend>What branch are you interested in?</legend>
+          <input type="radio" value="Beirut" name="branch" /> Beirut<br />
+          <input type="radio" value="Tripoly" name="branch" /> Tripoly<br />
+          <input type="radio" value="Sour" name="branch" /> Sour
+        </fieldset>
         <form method="GET" class="contact-form">
           <div class="contact-form__field">
             <label for="name">Name</label>
-            <input type="text" name="name" id="name" />
+            <input value="Nathan Wright" type="text" name="name" id="name" />
           </div>
           <div class="contact-form__field">
+            <label for="email">email</label>
+            <input type="email" required name="email" id="email" />
+          </div>
+          <div class="contact-form__field">
+            <label for="message">message</label>
             <textarea
+              id="message"
               name="message"
               placeholder="Your message should not be longer than 200 words."
             ></textarea>
@@ -74,7 +86,7 @@
             href="https://github.com/coditech/Submissions/tree/master/Exercises/html-css-git-exercises"
             >Built</a
           >
-          with ♥ for <a href="https://codi.tech/">Codi</a>.
+          with<span>♥</span> for <a href="https://codi.tech/">Codi</a>.
         </p>
         <p>
           <svg

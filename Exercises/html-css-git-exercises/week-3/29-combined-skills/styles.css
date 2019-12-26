@@ -1,1 +1,28 @@
 /* Add your own CSS code below */
+footer p span {
+  color: #c85308;
+}
+@media only screen and (max-width: 992px) {
+  .item__image {
+    width: 100%;
+  }
+}
+
+.main-nav__list {
+  display: flex;
+  column-gap: 50px;
+}
+@media only screen and (max-width: 767px) {
+  .site-header {
+    display: flex;
+  }
+  .views {
+    display: flex;
+  }
+  .views a {
+    margin-left: 5px;
+  }
+}
+.main-article {
+  max-width: 50em;
+}
