@@ -11,7 +11,7 @@ import storm from "./img/weather-icons/storm.svg";
 import Search from "./Search/Search";
 import CurrentWeather from "./WeatherNow/WeatherNow";
 import DetailedWeather from "./DetailedWeather/DetailedWeather";
-
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 import React, { Component } from "react";
 import "./App.css";
 function getImg(id) {
@@ -27,6 +27,7 @@ function getImg(id) {
   else if (id > 801 && id < 806) val = mostlyCloudy;
   return val;
 }
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -41,8 +42,6 @@ class App extends Component {
       cityName: txt
     });
 
-    // async componentDidMount() {
-
     const response = await fetch(
       `http://api.openweathermap.org/data/2.5/forecast?q=${txt}&cnt=8&units=metric&appid=3fd56fd89a7f9fc9a0182277400753fb`
     );
@@ -50,7 +49,7 @@ class App extends Component {
     console.log(json);
 
     this.setState({
-      status: json.list[6].weather[0].description,
+      status: json.list[0].weather[0].description,
       name: json.list[0].weather[0].main,
       img: json.list[0].weather[0].main,
       tem: json.list[0].main.temp,
@@ -70,7 +69,14 @@ class App extends Component {
       src4: json.list[4].weather[0].id,
       src5: json.list[5].weather[0].id,
       src6: json.list[6].weather[0].id,
-      src7: json.list[7].weather[0].id
+      src7: json.list[7].weather[0].id,
+      t: json.list[0].dt_txt.slice(11, 16),
+      t1: json.list[1].dt_txt.slice(11, 16),
+      t2: json.list[2].dt_txt.slice(11, 16),
+      t3: json.list[3].dt_txt.slice(11, 16),
+      t4: json.list[4].dt_txt.slice(11, 16),
+      t5: json.list[5].dt_txt.slice(11, 16),
+      t6: json.list[6].dt_txt.slice(11, 16)
     });
   };
 
@@ -90,43 +96,43 @@ class App extends Component {
           <section className="details">
             <DetailedWeather
               src={getImg(this.state.src1)}
-              time="03:00"
+              time={this.state.t}
               temp={this.state.time1}
             />
 
             <DetailedWeather
               src={getImg(this.state.src2)}
-              time="06:00"
+              time={this.state.t1}
               temp={this.state.time2}
             />
 
             <DetailedWeather
               src={getImg(this.state.src3)}
-              time="09:00"
+              time={this.state.t2}
               temp={this.state.time3}
             />
 
             <DetailedWeather
               src={getImg(this.state.src4)}
-              time="12:00"
+              time={this.state.t3}
               temp={this.state.time4}
             />
 
             <DetailedWeather
               src={getImg(this.state.src5)}
-              time="15:00"
+              time={this.state.t4}
               temp={this.state.time5}
             />
 
             <DetailedWeather
               src={getImg(this.state.src6)}
-              time="18:00"
+              time={this.state.t5}
               temp={this.state.time6}
             />
 
             <DetailedWeather
               src={getImg(this.state.src7)}
-              time="21:00"
+              time={this.state.t6}
               temp={this.state.time7}
             />
           </section>
