@@ -12,3 +12,27 @@
  update students set Points = 450 where Name like 'Basma'
 --(7)
  update students set Points = 5 where Name like 'Alex'
+
+
+                         -- Create table 
+ create table graduates (
+ ID  Integer Not Null Primary key autoincrement,
+Name Text Not Null Unique,
+Age Integer,
+Gender Text,
+Points Integer,
+Graduation date
+
+)
+
+--(1) 
+INSERT INTO graduates (Name,Age,Gender,Points) VALUES ((SELECT Name FROM students where Name = "Layal"),(SELECT Age FROM students where Name = "Layal"),(SELECT Gender FROM students where Name = "Layal"),(SELECT Points FROM students where Name = "Layal"))
+--(2)
+UPDATE graduates SET Graduation = "16-1-2020" WHERE Name = "Layal"
+--(3)
+DELETE FROM students
+WHERE Name like 'Layal';
+
+
+                                    -- Joins
+(1)
