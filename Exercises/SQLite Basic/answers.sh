@@ -3,7 +3,7 @@
 --(2)
  select * from students where age>30
 --(3)
- select name from students where age>30 and Gender like "F"
+ select name from students where age=30 and Gender like "F"
 --(4)
  select Points from students  where Name like "Alex"
 --(5)
@@ -35,4 +35,15 @@ WHERE Name like 'Layal';
 
 
                                     -- Joins
-(1)
+--(1)
+ select employees.Name,employees.Company,companies.Date from employees INNER Join companies on employees.Company = companies.Name
+--(2) 
+select employees.Name from employees INNER Join companies on employees.Company = companies.Name 
+where companies.Date <2000
+--(3)
+select employees.Company from employees INNER Join companies on employees.Company = companies.Name 
+where Role='Graphic Designer'
+
+
+                                       -- Count & Filter
+ 
