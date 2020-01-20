@@ -49,8 +49,10 @@ function onDataReceived(text) {
     help();
   } else if (text === "list") {
     list();
+  } else if (arr[0] === "remove") {
+    remove(arr);
   } else if (arr[0] === "add") {
-    if (arr[1] === undefined) console.error("you need to add a task please !");
+    if (arr[1] === undefined) console.error("please add task !");
     else add(arr);
   } else {
     unknownCommand(text);
@@ -101,9 +103,27 @@ function quit() {
   process.exit();
 }
 
+/**
+ * add
+ *
+ *
+ */
 function add(arr) {
   arr.shift();
   listTasks.push(arr.join(" "));
+}
+
+function remove(text) {
+  if (text[1] === undefined) {
+    listTasks.pop();
+  } else {
+    let listNumber = parseInt(text[1]);
+    if (listTasks[listNumber - 1] === undefined) {
+      console.error(" no task with this number");
+    } else {
+      listTasks.splice(listNumber - 1, 1);
+    }
+  }
 }
 
 // The following line starts the application
