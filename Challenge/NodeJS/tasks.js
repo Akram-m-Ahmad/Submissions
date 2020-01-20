@@ -49,6 +49,9 @@ function onDataReceived(text) {
     help();
   } else if (text === "list") {
     list();
+  } else if (arr[0] === "add") {
+    if (arr[1] === undefined) console.error("you need to add a task please !");
+    else add(arr);
   } else {
     unknownCommand(text);
   }
@@ -96,6 +99,11 @@ function help() {
 function quit() {
   console.log("Quitting now, goodbye!");
   process.exit();
+}
+
+function add(arr) {
+  arr.shift();
+  listTasks.push(arr.join(" "));
 }
 
 // The following line starts the application
