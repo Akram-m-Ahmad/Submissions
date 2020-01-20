@@ -122,6 +122,7 @@ function help() {
   console.log("lsit view list!");
   console.log("add add your list!");
   console.log("remove to delete index list!");
+  console.log("check/uncheck!");
 }
 
 /**
