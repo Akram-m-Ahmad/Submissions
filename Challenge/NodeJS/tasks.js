@@ -32,10 +32,12 @@ function startApp(name) {
  * @returns {void}
  */
 function onDataReceived(text) {
+  text = text.trim();
+  const arr = text.split(" ");
   if (text === "quit\n" || text === "exit\n") {
     quit();
-  } else if (text === "hello\n") {
-    hello();
+  } else if (arr[0] === "hello") {
+    hello(arr);
   } else if (text === "help\n") {
     help();
   } else {
@@ -51,7 +53,7 @@ function onDataReceived(text) {
  * @returns {void}
  */
 function unknownCommand(c) {
-  console.log('unknown command: "' + c.trim() + '"');
+  console.log('unknown command: "' + c + '"');
 }
 
 /**
@@ -59,8 +61,11 @@ function unknownCommand(c) {
  *
  * @returns {void}
  */
-function hello() {
-  console.log("hello!");
+function hello(text) {
+  if (text.length === 2) console.log("hello " + text[1] + "!");
+  else {
+    console.log("hello!");
+  }
 }
 
 /**
