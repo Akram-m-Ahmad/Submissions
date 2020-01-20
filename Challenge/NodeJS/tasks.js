@@ -71,30 +71,38 @@ function onDataReceived(text) {
   text = text.trim();
   const arr = text.split(" ");
   if (text === "quit" || text === "exit") {
+    writeFileAsync(listTasks);
     quit();
   } else if (arr[0] === "hello") {
+    writeFileAsync(listTasks);
     hello(arr);
   } else if (text === "help") {
+    writeFileAsync(listTasks);
     help();
   } else if (text === "list") {
+    writeFileAsync(listTasks);
     list();
   } else if (arr[0] === "remove") {
+    writeFileAsync(listTasks);
     remove(arr);
   } else if (arr[0] === "edit") {
     if (arr[1] === undefined) {
       console.error("you hadn't enter a text to edit");
       return;
     }
+    writeFileAsync(listTasks);
     edit(arr);
   } else if (arr[0] === "edit") {
     if (arr[1] === undefined) {
       console.error("you hadn't enter a text to edit");
       return;
     }
+    writeFileAsync(listTasks);
     edit(arr);
   } else if (arr[0] === "add") {
     if (arr[1] === undefined) console.error("please add task !");
-    else add(arr);
+    else writeFileAsync(listTasks);
+    add(arr);
   } else if (arr[0] === "check") {
     if (arr[1] === undefined) {
       console.error("you didn't enter a number");
