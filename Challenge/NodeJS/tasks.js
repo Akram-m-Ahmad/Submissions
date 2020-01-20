@@ -1,10 +1,14 @@
 const listTasks = ["Done", "Codi", "html", "node"];
 function list() {
   for (let i = 0; i < listTasks.length; i++) {
-    console.log(`${i + 1}: [✓] ${listTasks[i]}`);
+    if (listTasks[i].checked) {
+      console.log(`${i + 1}: [✓] ${listTasks[i]}`);
+    } else {
+      console.log(`${i + 1}: [ ] ${listTasks[i]}`);
+    }
+    add;
   }
 }
-
 /**
  * Starts the application
  * This is the function that is run when the app starts
@@ -66,6 +70,18 @@ function onDataReceived(text) {
   } else if (arr[0] === "add") {
     if (arr[1] === undefined) console.error("please add task !");
     else add(arr);
+  } else if (arr[0] === "check") {
+    if (arr[1] === undefined) {
+      console.error("you didn't enter a number");
+    } else {
+      check(arr);
+    }
+  } else if (arr[0] === "uncheck") {
+    if (arr[1] === undefined) {
+      console.error("you didn't enter a number");
+    } else {
+      uncheck(arr);
+    }
   } else {
     unknownCommand(text);
   }
@@ -154,6 +170,22 @@ function edit(arr) {
   } else {
     listTasks.pop();
     add(arr);
+  }
+}
+
+function check(arr) {
+  if (listTasks[arr[1] - 1] === undefined) {
+    console.error("their is no task with this number");
+  } else {
+    listTasks[arr[1] - 1].checked = true;
+  }
+}
+
+function uncheck(arr) {
+  if (listTasks[arr[1] - 1] === undefined) {
+    console.error("their is no task with this number");
+  } else {
+    listOfTasks[arr[1] - 1].checked = false;
   }
 }
 
