@@ -1,4 +1,25 @@
 const listTasks = ["Done", "Codi", "html", "node"];
+
+const fs = require("fs");
+
+const FILE_NAME = "database.json";
+
+const writeFileAsync = newData => {
+  const stringifiedData = JSON.stringify(newData);
+
+  fs.writeFile(FILE_NAME, stringifiedData, error => {
+    if (error) {
+      console.log("Async Write: NOT successful!");
+      console.log(error);
+    } else {
+      console.log("Async Write: successful!");
+      console.log(stringifiedData);
+    }
+  });
+};
+
+writeFileAsync(listTasks);
+
 function list() {
   for (let i = 0; i < listTasks.length; i++) {
     if (listTasks[i].checked) {
