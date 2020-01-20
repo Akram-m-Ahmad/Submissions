@@ -64,7 +64,7 @@ function hello() {
 }
 
 /**
- * help
+ * help lists all the possible commands
  *
  * @returns {void}
  */
