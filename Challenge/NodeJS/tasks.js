@@ -122,7 +122,7 @@ function remove(text) {
   } else {
     let listNumber = parseInt(text[1]);
     if (listTasks[listNumber - 1] === undefined) {
-      console.error(" no task with this number");
+      console.error(" you enter a number that does not exist");
     } else {
       listTasks.splice(listNumber - 1, 1);
     }
