@@ -51,6 +51,18 @@ function onDataReceived(text) {
     list();
   } else if (arr[0] === "remove") {
     remove(arr);
+  } else if (arr[0] === "edit") {
+    if (arr[1] === undefined) {
+      console.error("you hadn't enter a text to edit");
+      return;
+    }
+    edit(arr);
+  } else if (arr[0] === "edit") {
+    if (arr[1] === undefined) {
+      console.error("you hadn't enter a text to edit");
+      return;
+    }
+    edit(arr);
   } else if (arr[0] === "add") {
     if (arr[1] === undefined) console.error("please add task !");
     else add(arr);
@@ -126,6 +138,22 @@ function remove(text) {
     } else {
       listTasks.splice(listNumber - 1, 1);
     }
+  }
+}
+
+function edit(arr) {
+  let num = parseInt(arr[1]);
+  if (Number.isInteger(num)) {
+    if (listTasks[num - 1] === undefined) {
+      console.error("there is no task with this number");
+    } else {
+      arr.shift();
+      arr.shift();
+      listTasks[num - 1] = arr.join(" ");
+    }
+  } else {
+    listTasks.pop();
+    add(arr);
   }
 }
 
