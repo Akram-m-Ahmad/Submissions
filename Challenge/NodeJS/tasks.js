@@ -1,4 +1,4 @@
-const listTasks = ["Done", "Codi", "html", "node"];
+const listTasks = ["Done", "Codi", "html", "node", "eat"];
 
 const fs = require("fs");
 
@@ -19,6 +19,10 @@ const writeFileAsync = newData => {
 };
 
 writeFileAsync(listTasks);
+
+for (let j = 0; j < process.argv.length; j++) {
+  console.log(j + " -> " + process.argv[j]);
+}
 
 function list() {
   for (let i = 0; i < listTasks.length; i++) {
