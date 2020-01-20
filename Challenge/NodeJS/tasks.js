@@ -91,6 +91,9 @@ function help() {
   console.log("node tasks.js To start node app");
   console.log("exit or quit To exit node app");
   console.log("hello To view hello!");
+  console.log("lsit view list!");
+  console.log("add add your list!");
+  console.log("remove to delete index list!");
 }
 
 /**
