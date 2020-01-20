@@ -36,6 +36,8 @@ function onDataReceived(text) {
     quit();
   } else if (text === "hello\n") {
     hello();
+  } else if (text === "help\n") {
+    help();
   } else {
     unknownCommand(text);
   }
@@ -59,6 +61,17 @@ function unknownCommand(c) {
  */
 function hello() {
   console.log("hello!");
+}
+
+/**
+ * help
+ *
+ * @returns {void}
+ */
+function help() {
+  console.log("node tasks.js To start node app");
+  console.log("exit or quit To exit node app");
+  console.log("hello To view hello!");
 }
 
 /**
