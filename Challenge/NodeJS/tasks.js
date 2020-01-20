@@ -1,3 +1,10 @@
+const listTasks = ["Done", "Codi", "html", "node"];
+function list() {
+  for (let i = 0; i < listTasks.length; i++) {
+    console.log(`${i + 1}: [✓] ${listTasks[i]}`);
+  }
+}
+
 /**
  * Starts the application
  * This is the function that is run when the app starts
@@ -40,6 +47,8 @@ function onDataReceived(text) {
     hello(arr);
   } else if (text === "help") {
     help();
+  } else if (text === "list") {
+    list();
   } else {
     unknownCommand(text);
   }
