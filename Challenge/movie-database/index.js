@@ -45,6 +45,12 @@ let arr = [];
 for (let i = 0; i < movies.length; i++) {
   arr[i] = movies[i].title;
 }
+
+let arrR = [];
+for (let i = 0; i < movies.length; i++) {
+  arrR[i] = i;
+}
+
 let arrDate = [];
 
 for (let i = 0; i < movies.length; i++) {
@@ -55,6 +61,26 @@ let arrRate = [];
 for (let i = 0; i < movies.length; i++) {
   arrRate[i] = movies[i].rating;
 }
+
+app.get("/movies/read/:id?", function(req, res) {
+  //  console.log(req.params);
+  //  console.log(req.query);
+  let str = arrR.toString();
+  console.log(str);
+  let par = req.params.id;
+
+  console.log(str.includes(par));
+
+  if (par && str.includes(par)) {
+    res.json({ status: 200, message: `ok`, data: `${arr}` });
+  } else {
+    res.json({
+      status: 404,
+      error: true,
+      message: `the movie ${par} does not exist`
+    });
+  }
+});
 
 app.get("/movies/create", (req, res) => {
   res.json({ status: 200, data: `${time}` });
