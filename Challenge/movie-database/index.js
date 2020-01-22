@@ -45,12 +45,34 @@ let arr = [];
 for (let i = 0; i < movies.length; i++) {
   arr[i] = movies[i].title;
 }
+let arrDate = [];
+
+for (let i = 0; i < movies.length; i++) {
+  arrDate[i] = movies[i].year;
+}
+let arrRate = [];
+
+for (let i = 0; i < movies.length; i++) {
+  arrRate[i] = movies[i].rating;
+}
+
 app.get("/movies/create", (req, res) => {
   res.json({ status: 200, data: `${time}` });
 });
 app.get("/movies/read", (req, res) => {
   res.json({ status: 200, data: `${arr}` });
 });
+app.get("/movies/read/by-date", (req, res) => {
+  res.json({ status: 200, data: `${arrDate.sort()}` });
+});
+app.get("/movies/read/by-rating", (req, res) => {
+  res.json({ status: 200, data: `${arrRate.sort()}` });
+});
+
+app.get("/movies/read/by-title", (req, res) => {
+  res.json({ status: 200, data: `${arr.sort()}` });
+});
+
 app.get("/movies/update", (req, res) => {
   res.json({ status: 200, message: `${time}` });
 });
