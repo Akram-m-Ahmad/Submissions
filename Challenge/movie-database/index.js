@@ -15,6 +15,26 @@ app.get("/time", (req, res) => {
   res.json({ status: 200, message: `${time}` });
 });
 
+app.get("/hello/:id?", function(req, res) {
+  if (req.params.id) {
+    res.json({ status: 200, message: `hello ,` + req.params.id });
+  } else {
+    res.console.error();
+  }
+});
+
+app.get("/search=:se?", function(req, res) {
+  if (req.params.se) {
+    res.json({ status: 200, message: `ok`, data: req.params.se });
+  } else {
+    res.json({
+      status: 500,
+      error: true,
+      message: "you have to provide a search"
+    });
+  }
+});
+
 app.listen(port, () =>
   console.log(`Server running at: http://localhost:${port}/`)
 );
