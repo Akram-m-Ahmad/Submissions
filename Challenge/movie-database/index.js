@@ -66,10 +66,8 @@ app.get("/movies/read/:id?", function(req, res) {
   //  console.log(req.params);
   //  console.log(req.query);
   let str = arrR.toString();
-  console.log(str);
-  let par = req.params.id;
 
-  console.log(str.includes(par));
+  let par = req.params.id;
 
   if (par && str.includes(par)) {
     res.json({ status: 200, message: `ok`, data: `${arr}` });
@@ -81,10 +79,58 @@ app.get("/movies/read/:id?", function(req, res) {
     });
   }
 });
+//Create
+app.get("/movies/add/title=:TITLE?&year=:YEAR?&rating=:RATING?", (req, res) => {
+  if (req.params.TITLE && req.params.YEAR && req.params.RATING) {
+    movies.push({
+      title: `${req.params.TITLE}`,
+      year: `${req.params.YEAR}`,
+      rating: `${req.params.RATING}`
+    });
 
-app.get("/movies/create", (req, res) => {
-  res.json({ status: 200, data: `${time}` });
+    res.json({
+      status: 200,
+      message: `ADDED`,
+      data: `${
+        movies[
+          Object.keys(movies)
+            .sort()
+            .pop()
+        ].title
+      }`
+    });
+  } else if (req.params.TITLE || req.params.YEAR) {
+    res.json({
+      status: 403,
+      error: true,
+      message: "you cannot create a movie without providing a title and a year"
+    });
+  } else if (req.params.TITLE && req.params.YEAR) {
+    movies.push({
+      title: `${req.params.TITLE}`,
+      year: `${req.params.YEAR}`,
+      rating: `4`
+    });
+    res.json({
+      status: 200,
+      message: `ok`,
+      data: `${
+        movies[
+          Object.keys(movies)
+            .sort()
+            .pop()
+        ].title
+      }`
+    });
+  } else {
+    res.json({
+      status: 403,
+      error: true,
+      message: "you cannot create a movie without providing a title and a year"
+    });
+  }
 });
+
 app.get("/movies/read", (req, res) => {
   res.json({ status: 200, data: `${arr}` });
 });
