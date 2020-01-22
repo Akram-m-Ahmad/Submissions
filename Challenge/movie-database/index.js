@@ -148,8 +148,20 @@ app.get("/movies/read/by-title", (req, res) => {
 app.get("/movies/update", (req, res) => {
   res.json({ status: 200, message: `${time}` });
 });
-app.get("/movies/delete", (req, res) => {
-  res.json({ status: 200, message: `${time}` });
+app.get("/movies/delete/:id?", (req, res) => {
+  let parr = req.params.id;
+  let r = [];
+  if (parr) {
+    r = arrR.splice(parr, 1);
+    console.log(arrR);
+    res.json({ status: 200, message: `ok`, data: `${r}` });
+  } else {
+    res.json({
+      status: 404,
+      error: true,
+      message: `the movie ${r} does not exist`
+    });
+  }
 });
 
 app.listen(port, () =>
