@@ -35,6 +35,29 @@ app.get("/search=:se?", function(req, res) {
   }
 });
 
+const movies = [
+  { title: "Jaws", year: 1975, rating: 8 },
+  { title: "Avatar", year: 2009, rating: 7.8 },
+  { title: "Brazil", year: 1985, rating: 8 },
+  { title: "الإرهاب والكباب‎", year: 1992, rating: 6.2 }
+];
+let arr = [];
+for (let i = 0; i < movies.length; i++) {
+  arr[i] = movies[i].title;
+}
+app.get("/movies/create", (req, res) => {
+  res.json({ status: 200, data: `${time}` });
+});
+app.get("/movies/read", (req, res) => {
+  res.json({ status: 200, data: `${arr}` });
+});
+app.get("/movies/update", (req, res) => {
+  res.json({ status: 200, message: `${time}` });
+});
+app.get("/movies/delete", (req, res) => {
+  res.json({ status: 200, message: `${time}` });
+});
+
 app.listen(port, () =>
   console.log(`Server running at: http://localhost:${port}/`)
 );
