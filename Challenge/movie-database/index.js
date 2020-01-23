@@ -45,7 +45,10 @@ let arr = [];
 for (let i = 0; i < movies.length; i++) {
   arr[i] = movies[i].title;
 }
-
+let arrT = [];
+for (let i = 0; i < movies.length; i++) {
+  arrT[i] = movies[i].title;
+}
 let arrR = [];
 for (let i = 0; i < movies.length; i++) {
   arrR[i] = i;
@@ -145,9 +148,32 @@ app.get("/movies/read/by-title", (req, res) => {
   res.json({ status: 200, data: `${arr.sort()}` });
 });
 
-app.get("/movies/update", (req, res) => {
-  res.json({ status: 200, message: `${time}` });
-});
+//update
+app.get(
+  "/movies/update/:id?&title=:NEW_TITLE?&rating=:NEW_RATING?",
+  (req, res) => {
+    let parrr = req.params.id;
+    let newT = req.params.NEW_TITLE;
+    let newRat = req.params.NEW_RATING;
+    let rr = [];
+    console.log(arrT);
+    if (parrr && newT) {
+      rr = arrT.splice(parrr, parrr, newT);
+      res.json({ status: 200, message: `ok`, data: `${rr}` });
+    } else if (parrr && newT && newRat) {
+      rr1 = arrT.splice(parrr, parrr, newT, newRat);
+      res.json({ status: 200, message: `ok`, data: `${rr1}` });
+    } else {
+      res.json({
+        status: 404,
+        error: true,
+        message: `the movie ${r} does not exist`
+      });
+    }
+  }
+);
+
+//delete
 app.get("/movies/delete/:id?", (req, res) => {
   let parr = req.params.id;
   let r = [];
