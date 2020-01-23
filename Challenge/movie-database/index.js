@@ -1,6 +1,15 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+const bodyParser = require("body-parser");
+app.use(bodyParser.json()); // to support JSON-encoded bodies
+app.use(
+  bodyParser.urlencoded({
+    // to support URL-encoded bodies
+    extended: true
+  })
+);
+app.use(express.json());
 
 app.get("/", (req, res) => res.send("hello!"));
 
@@ -84,7 +93,7 @@ app.get("/movies/read/:id?", function(req, res) {
 });
 //Create
 app.get("/movies/add/title=:TITLE?&year=:YEAR?&rating=:RATING?", (req, res) => {
-  if (req.params.TITLE && req.params.YEAR && req.params.RATING) {
+  if (req.params.TITLE && !isNaN(req.params.YEAR) && req.params.RATING) {
     movies.push({
       title: `${req.params.TITLE}`,
       year: `${req.params.YEAR}`,
@@ -188,6 +197,64 @@ app.get("/movies/delete/:id?", (req, res) => {
       message: `the movie ${r} does not exist`
     });
   }
+});
+
+//HTTP VERB
+//get
+app.get("/movies", (req, res) => {
+  res.send(movies);
+  console.log("s");
+});
+//post
+app.post("/movies/post/", (req, res) => {
+  console.log(req.body.title);
+  console.log(req.body.year);
+  console.log(req.body.rating);
+  const movie = {
+    title: req.body.title,
+    year: req.body.year,
+    rating: req.body.rating
+  };
+
+  movies.push(movie);
+  res.send(movies);
+});
+
+//put
+
+app.put("/movies/put/:id", (req, res) => {
+  let id = req.params.id;
+  if (id >= 0 && id < movies.length) {
+    for (test in req.query) {
+      if (test === "title") {
+        movies[id][test] = req.body[test];
+      }
+      if (test === "year") {
+        movies[id][test] = req.body[test];
+      }
+      if (test === "rating") {
+        movies[id][test] = req.body[test];
+      }
+    }
+    res.json(movies);
+  } else {
+    res.json({ status: 404, error: true, message: `id ${id} doesn't exist` });
+  }
+});
+//Delete
+
+app.delete("/movies/delete/:id", (request, response) => {
+  let contactId = request.params.id;
+
+  let contact = movies.filter(contact => {
+    return contact.id == contactId;
+  })[0];
+
+  const index = movies.indexOf(contact);
+
+  movies.splice(index, 1);
+
+  response.send(movies);
 });
 
 app.listen(port, () =>
