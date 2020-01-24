@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const bodyParser = require("body-parser");
+
 app.use(bodyParser.json()); // to support JSON-encoded bodies
 app.use(
   bodyParser.urlencoded({
@@ -10,6 +11,40 @@ app.use(
   })
 );
 app.use(express.json());
+
+//db
+
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+const connectionString =
+  "mongodb+srv://Akram:a111222333@clusterprime-mvjxv.gcp.mongodb.net/test?retryWrites=true&w=majority";
+
+mongoose
+  .connect(connectionString, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+  })
+  .then(() => console.log("MongoDb Connected"))
+  .catch(err => console.log(err));
+
+const movieSchema = new Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  year: {
+    type: Number,
+    required: true
+  },
+  rating: {
+    type: Number,
+    required: true
+  }
+});
+
+const Movie = mongoose.model("movies", movieSchema);
+
+//get
 
 app.get("/", (req, res) => res.send("hello!"));
 
