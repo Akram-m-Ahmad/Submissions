@@ -43,7 +43,22 @@ const movieSchema = new Schema({
 });
 
 const Movie = mongoose.model("movies", movieSchema);
+module.exports = Movie;
 
+exports.movie = function(req, res) {
+  let movie = new movies({
+    title: req.body.title,
+    year: req.body.year,
+    rating: req.body.rating
+  });
+
+  product.save(function(err) {
+    if (err) {
+      return next(err);
+    }
+    res.send("Product Created successfully");
+  });
+};
 //get
 
 app.get("/", (req, res) => res.send("hello!"));
